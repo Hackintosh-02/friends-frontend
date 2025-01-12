@@ -15,32 +15,32 @@ export default {
 			},
 			colors: {
 				background: {
-					DEFAULT: '#FFFFFF', // Light mode background
-					dark: '#202124' // Dark mode background
+					DEFAULT: '#f4f5fb', // Light mode background
+					dark: '#04050b' // Dark mode background
 				},
 				foreground: {
-					DEFAULT: '#111827', // Light mode text
-					dark: '#E5E7EB' // Dark mode text
+					DEFAULT: '#0d111c', // Light mode text
+					dark: '#e3e7f2' // Dark mode text
 				},
 				card: {
-					DEFAULT: '#F8F9FA', // Light mode card background
-					dark: '#272A30' // Dark mode card background
+					DEFAULT: '#FFFFFF', // Light mode card background
+					dark: '#121421' // Dark mode card background
 				},
 				muted: {
 					DEFAULT: '#6B7280', // Light mode muted text
 					dark: '#A1A1AA' // Dark mode muted text
 				},
 				primary: {
-					DEFAULT: '#6366F1', // Light mode primary color
-					dark: '#8B5CF6' // Dark mode primary color
+					DEFAULT: '#1b3279', // Light mode primary color
+					dark: '#869de4' // Dark mode primary color
 				},
 				secondary: {
-					DEFAULT: '#FBBF24', // Light mode secondary color
-					dark: '#FACC15' // Dark mode secondary color
+					DEFAULT: '#7392ed', // Light mode secondary color
+					dark: '#12318c' // Dark mode secondary color
 				},
 				accent: {
-					DEFAULT: '#22D3EE', // Light mode accent color
-					dark: '#06B6D4' // Dark mode accent color
+					DEFAULT: '#0a3fdb', // Light mode accent color
+					dark: '#2458f5' // Dark mode accent color
 				},
 				destructive: {
 					DEFAULT: '#EF4444', // Light mode destructive color
@@ -48,19 +48,19 @@ export default {
 				},
 				border: {
 					DEFAULT: '#D1D5DB', // Light mode border
-					dark: '#374151' // Dark mode border
+					dark: '#2C2F3B' // Dark mode border
 				},
 				input: {
 					DEFAULT: '#F3F4F6', // Light mode input background
-					dark: '#374151' // Dark mode input background
+					dark: '#2C2F3B' // Dark mode input background
 				},
 				ring: {
-					DEFAULT: '#6366F1', // Light mode ring
-					dark: '#8B5CF6' // Dark mode ring
+					DEFAULT: '#1b3279', // Light mode ring
+					dark: '#869de4' // Dark mode ring
 				},
 				popover: {
 					DEFAULT: '#FFFFFF', // Light mode popover background
-					dark: '#3B3F45' // Dark mode popover background
+					dark: '#1C1F2B' // Dark mode popover background
 				}
 			}
 		}

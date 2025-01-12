@@ -17,7 +17,9 @@ const Login = ({ onLogin }) => {
         try {
             const response = await axios.post('http://localhost:5000/api/auth/login', formData);
             localStorage.setItem('token', response.data.token);
-            onLogin();
+            localStorage.setItem('username', response.data.user.username);
+
+            onLogin(response.data.user.username);
             navigate('/home');
         } catch (err) {
             setError(err.response?.data?.error || 'Login failed');
@@ -25,30 +27,33 @@ const Login = ({ onLogin }) => {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-            <h1 className="text-3xl font-bold mb-6">Login</h1>
-            <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-96">
-                <input
-                    type="text"
-                    name="username"
-                    placeholder="Username"
-                    value={formData.username}
-                    onChange={handleChange}
-                    className="w-full mb-4 p-2 border rounded"
-                    required
-                />
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    className="w-full mb-4 p-2 border rounded"
-                    required
-                />
-                <Button type="submit" className="w-full">Login</Button>
-                {error && <p className="text-red-500 mt-4">{error}</p>}
-            </form>
+        <div className="flex flex-col items-center justify-center h-full bg-background dark:bg-foreground text-foreground dark:text-foreground-dark">
+            <div className="flex flex-col">
+                <h1 className="text-3xl font-bold mb-6 border-b-4 border-primary dark:border-primary-dark pb-4">Login</h1>
+                <p className="mb-4">Login to your account account</p>
+                <form onSubmit={handleSubmit} className="bg-card dark:bg-card-dark p-8 rounded-2xl border-2 border-gray-50 shadow-lg w-96">
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Username"
+                        value={formData.username}
+                        onChange={handleChange}
+                        className="w-full mb-4 p-2 border border-border dark:border-border-dark rounded bg-input dark:bg-input-dark"
+                        required
+                    />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        className="w-full mb-4 p-2 border border-border dark:border-border-dark rounded bg-input dark:bg-input-dark"
+                        required
+                    />
+                    <Button type="submit" className="w-full bg-primary dark:bg-primary-dark text-white">Login</Button>
+                    {error && <p className="text-destructive dark:text-destructive-dark mt-4">{error}</p>}
+                </form>
+            </div>
         </div>
     );
 };
