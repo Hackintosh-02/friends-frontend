@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Button } from '../components/ui/button';
 
 const Signup = () => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const [formData, setFormData] = useState({
         username: '',
         fullname: '',
@@ -48,7 +49,7 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/signup', {
+            const response = await axios.post(`${API_URL}/api/auth/signup`, {
                 ...formData,
                 interests,
             });

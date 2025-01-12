@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Button } from '../components/ui/button';
 
 const Login = ({ onLogin }) => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const [formData, setFormData] = useState({ username: '', password: '' });
     const [error, setError] = useState('');
     const navigate = useNavigate();
@@ -15,7 +16,7 @@ const Login = ({ onLogin }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+            const response = await axios.post(`${API_URL}/api/auth/login`, formData);
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('username', response.data.user.username);
 

@@ -5,6 +5,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '../components/ui/card'
 import { ChevronLeft, ChevronRight, UserMinus, UserPlus, Users, Mail } from 'lucide-react';
 
 const Home = () => {
+    const API_URL = import.meta.env.VITE_API_URL;
     const [friends, setFriends] = useState([]);
     const [recommendations, setRecommendations] = useState([]);
     const [friendRequests, setFriendRequests] = useState([]);
@@ -19,14 +20,14 @@ const Home = () => {
 
             try {
                 // Fetch user's friends
-                const friendsResponse = await axios.get('http://localhost:5000/api/friends/friends', {
+                const friendsResponse = await axios.get(`${API_URL}/api/friends/friends`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 setFriends(friendsResponse.data.friends);
 
                 // Fetch recommendations
                 const recommendationsResponse = await axios.get(
-                    'http://localhost:5000/api/friends/recommendations',
+                    `${API_URL}/api/friends/recommendations`,
                     {
                         headers: { Authorization: `Bearer ${token}` },
                     }
@@ -35,7 +36,7 @@ const Home = () => {
 
                 // Fetch friend requests
                 const requestsResponse = await axios.get(
-                    'http://localhost:5000/api/friends/requests',
+                    `${API_URL}/api/friends/requests`,
                     {
                         headers: { Authorization: `Bearer ${token}` },
                     }
@@ -54,7 +55,7 @@ const Home = () => {
         const token = localStorage.getItem('token');
         try {
             await axios.post(
-                'http://localhost:5000/api/friends/request',
+                `${API_URL}/api/friends/request`,
                 { toUserId: friendId },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -69,7 +70,7 @@ const Home = () => {
         const token = localStorage.getItem('token');
         try {
             await axios.post(
-                'http://localhost:5000/api/friends/unfriend',
+                `${API_URL}/api/friends/unfriend`,
                 { friendId },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -84,7 +85,7 @@ const Home = () => {
         const token = localStorage.getItem('token');
         try {
             await axios.post(
-                'http://localhost:5000/api/friends/accept',
+                `${API_URL}/api/friends/accept`,
                 { requestId },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -99,7 +100,7 @@ const Home = () => {
         const token = localStorage.getItem('token');
         try {
             await axios.post(
-                'http://localhost:5000/api/friends/reject',
+                `${API_URL}/api/friends/reject`,
                 { requestId },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
